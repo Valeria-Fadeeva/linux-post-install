@@ -1,0 +1,1 @@
+qemu-full quota-tools docker docker-compose docker-machine docker-scan portainer-bin virt-install virt-manager virt-viewer swtpm

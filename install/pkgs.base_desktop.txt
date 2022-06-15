@@ -1,0 +1,14 @@
+firefox firefox-i18n-ru firefox-developer-edition firefox-developer-edition-i18n-ru firefox-dark-reader google-chrome
+telegram-desktop discord mailspring zoom skypeforlinux-stable-bin
+onlyoffice-bin libreoffice-fresh libreoffice-fresh-ru
+gwenview gimp inkscape
+kate kcalc meld mc terminus-font kdiff3 keepassxc yandex-disk
+visual-studio-code-bin
+github-cli github-desktop curl wget pv tmux websocat
+remmina filezilla anydesk-bin
+audacious mpv obs-studio-tytan652
+dkms pamac-aur pamac-tray-icon-plasma
+bluedevil drkonqi kgamma5 ksshaskpass
+systemd-ui systemd-boot-pacman-hook systemd-resolvconf fancontrol-gui gwe
+plasma-browser-integration plasma-systemmonitor plasma-disks plasma-firewall plasma-workspace-wallpapers plasma5-applets-thermal-monitor plasma5-applets-window-appmenu plasma5-applets-window-buttons kdeplasma-addons
+xdg-desktop-portal-kde kinfocenter kwin-scripts-forceblur lightly-qt

@@ -1,0 +1,1 @@
+apparmor=1 security=apparmor loglevel=3 systemd.unified_cgroup_hierarchy=0 fsck.mode=force fsck.repair=yes add_efi_memmap

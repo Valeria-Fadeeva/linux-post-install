@@ -1,0 +1,9 @@
+nvidia-settings
+nvidia-utils
+lib32-nvidia-utils
+nvidia-cg-toolkit
+lib32-nvidia-cg-toolkit
+nvidia-dkms
+opencl-headers
+opencl-nvidia
+lib32-opencl-nvidia

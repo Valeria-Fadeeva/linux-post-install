@@ -1,0 +1,1 @@
+video=vesafb:off,efifb:on

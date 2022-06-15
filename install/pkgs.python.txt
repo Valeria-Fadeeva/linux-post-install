@@ -1,0 +1,1 @@
+python-black python-pipenv python-poetry python-pylint yapf flake8 mypy autopep8

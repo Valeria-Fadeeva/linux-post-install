@@ -1,0 +1,29 @@
+# mkinitcpio preset file for the 'Lera Forest' package
+
+KVER=$(ls /usr/lib/modules/ | grep "xanmod" | head -n 1)
+
+if [[ -z "$KVER" ]]; then
+    exit
+fi
+
+D=$(date +%Y.%m.%d-%H-%M-%S)
+
+cp -vf /boot/amd-ucode.img /boot/efi/EFI/Linux/
+cp -vf /boot/intel-ucode.img /boot/efi/EFI/Linux/
+cp -vf /usr/lib/modules/$KVER/vmlinuz /boot/efi/EFI/Linux/vmlinuz-xanmod
+
+ALL_config="/etc/mkinitcpio.conf"
+ALL_kver="/usr/lib/modules/$KVER/vmlinuz"
+ALL_microcode=(/boot/*-ucode.img)
+
+PRESETS=('default' 'fallback')
+
+#default_config="/etc/mkinitcpio.conf"
+default_image="/boot/efi/EFI/Linux/initramfs-xanmod.img"
+default_efi_image="/boot/efi/EFI/Linux/linux-xanmod.efi"
+default_options="--cmdline /boot/cmdline.txt"
+
+#fallback_config="/etc/mkinitcpio.conf"
+fallback_image="/boot/efi/EFI/Linux/initramfs-xanmod-fallback.img"
+fallback_efi_image="/boot/efi/EFI/Linux/linux-xanmod-fallback.efi"
+fallback_options="-S autodetect --cmdline /boot/cmdline.txt"

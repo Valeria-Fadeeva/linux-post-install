@@ -1,0 +1,13 @@
+<!--
+WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
+  virsh net-edit br0
+or other application using the libvirt API.
+-->
+
+<network>
+  <name>br0</name>
+  <uuid>31334837-26bd-402e-808d-1346ccba967a</uuid>
+  <forward mode='bridge'/>
+  <bridge name='br0'/>
+</network>

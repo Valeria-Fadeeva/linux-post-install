@@ -12,3 +12,5 @@ bluedevil drkonqi kgamma5 ksshaskpass
 systemd-ui systemd-boot-pacman-hook systemd-resolvconf fancontrol-gui gwe
 plasma-browser-integration plasma-systemmonitor plasma-disks plasma-firewall plasma-workspace-wallpapers plasma5-applets-thermal-monitor plasma5-applets-window-appmenu plasma5-applets-window-buttons kdeplasma-addons
 xdg-desktop-portal-kde kinfocenter kwin-scripts-forceblur lightly-qt
+v4l2loopback-dkms
+akvcam-dkms

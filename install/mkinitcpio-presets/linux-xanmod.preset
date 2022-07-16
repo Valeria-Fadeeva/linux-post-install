@@ -1,6 +1,6 @@
 # mkinitcpio preset file for the 'Lera Forest' package
 
-KVER=$(ls /usr/lib/modules/ | grep "xanmod" | head -n 1)
+KVER=$(ls /usr/lib/modules/ | grep "xanmod" | sort -V | tail -n 1)
 
 if [[ -z "$KVER" ]]; then
     exit

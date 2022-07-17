@@ -1,5 +1,5 @@
 nvidia-settings
-nvidia-utils
+nvidia-utils-nvlax
 lib32-nvidia-utils
 nvidia-cg-toolkit
 lib32-nvidia-cg-toolkit
@@ -7,3 +7,4 @@ nvidia-dkms
 opencl-headers
 opencl-nvidia
 lib32-opencl-nvidia
+xorg-server-devel

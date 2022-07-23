@@ -10,7 +10,7 @@ fi
 
 pacman --needed -S plymouth
 
-THEME_NAME="lera-forest"
+THEME_NAME="anime-scenery"
 
 if [[ -n "$THEME_NAME" ]]; then
     echo "Non empty"

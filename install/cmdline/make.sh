@@ -34,7 +34,7 @@ fstab_rootuuid=$(cat /etc/fstab | grep "/ " | cut -d" " -f1)
 
 blkid_rootuuid=$(blkid | grep root | cut -d" " -f2 | head -n 1 | sed -r 's/\"//g')
 
-if [[ -n "$blkid_rootuuid" ]] && [[ -n "$fstab_rootuuid" ]] && [[ -n "$cmdline_rootuuid" ]]; then
+if [[ -n "$blkid_rootuuid" ]] || [[ -n "$fstab_rootuuid" ]] || [[ -n "$cmdline_rootuuid" ]]; then
     if [[ "$fstab_rootuuid" == "$cmdline_rootuuid" ]]; then
         ROOTUUID=$fstab_rootuuid
     elif [[ "$fstab_rootuuid" == "$blkid_rootuuid" ]]; then

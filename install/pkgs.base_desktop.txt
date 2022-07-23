@@ -1,4 +1,4 @@
-firefox firefox-i18n-ru firefox-developer-edition firefox-developer-edition-i18n-ru firefox-dark-reader google-chrome
+firefox firefox-i18n-ru firefox-developer-edition firefox-developer-edition-i18n-ru firefox-dark-reader google-chrome torrential
 telegram-desktop discord mailspring zoom skypeforlinux-stable-bin
 onlyoffice-bin libreoffice-fresh libreoffice-fresh-ru
 gwenview gimp inkscape

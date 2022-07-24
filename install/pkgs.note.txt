@@ -129,7 +129,9 @@ mkinitcpio-openswap
 mkinitcpio-systemd-tool
 mlocate
 mtools
-neofetch-git
+neofetch
+lolcat
+screenfetch
 net-tools
 networkmanager
 noto-fonts

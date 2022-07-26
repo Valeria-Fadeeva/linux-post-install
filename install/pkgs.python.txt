@@ -1,1 +1,1 @@
-python-black python-pipenv python-poetry python-pylint yapf flake8 mypy autopep8 bpython
+python-pipenv python-poetry yapf flake8 mypy bandit python-black python-pylint python-flake8-docstrings python-pydocstyle autopep8 bpython

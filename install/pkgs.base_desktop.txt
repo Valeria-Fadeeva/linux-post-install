@@ -7,6 +7,7 @@ visual-studio-code-bin
 github-cli github-desktop curl wget pv tmux websocat
 remmina filezilla anydesk-bin
 audacious mpv obs-studio-tytan652
+flameshot
 dkms pamac-aur pamac-tray-icon-plasma
 bluedevil drkonqi kgamma5 ksshaskpass
 systemd-ui systemd-boot-pacman-hook systemd-resolvconf fancontrol-gui gwe

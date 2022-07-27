@@ -8,6 +8,7 @@ if [[ "$?" != 0 ]]; then
         echo $(pwd)
         cd linux-boot-efi
         echo $(pwd)
+        git reset --hard HEAD
         git pull
         bash ./install_all.sh
     fi

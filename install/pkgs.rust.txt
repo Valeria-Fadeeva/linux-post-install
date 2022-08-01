@@ -43,3 +43,4 @@ lldb
 lld
 bear
 fasm nasm yasm
+tcc

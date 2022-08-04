@@ -1,1 +1,3 @@
 python-pipenv python-poetry yapf flake8 mypy bandit python-black python-pylint python-flake8-docstrings python-pydocstyle autopep8 bpython
+python-matplotlib python-seaborn
+tk

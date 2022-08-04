@@ -4,6 +4,6 @@
 
 Работает на Garuda Linux (из опробованных множеств дистрибутивов, этот мне нравится больше всего для десктопа).
 
-[Watch video](https://raw.githubusercontent.com/Valeria-Fadeeva/linux-post-install/main/video/output.webm)
+[![Watch video](video/preview.png)](https://raw.githubusercontent.com/Valeria-Fadeeva/linux-post-install/main/video/output.webm)
 
-[Full on youtube](https://www.youtube.com/watch?v=Bs1gLrFPDyI)
+<a href="https://www.youtube.com/watch?v=Bs1gLrFPDyI" target="_blank">Full on youtube</a>

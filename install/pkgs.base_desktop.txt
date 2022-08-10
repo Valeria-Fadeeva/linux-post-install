@@ -8,6 +8,7 @@ github-cli github-desktop curl wget pv tmux websocat
 remmina filezilla anydesk-bin
 audacious mpv obs-studio-tytan652
 flameshot
+whatsapp-for-linux
 tree
 p7zip p7zip-gui
 dkms pamac-aur pamac-tray-icon-plasma

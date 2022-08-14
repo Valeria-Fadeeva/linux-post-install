@@ -31,5 +31,5 @@ cp -vrf memtest /boot/efi/EFI/
 
 bash preset.sh
 
-cd ../../linux-boot-efi
+cd ../../../linux-boot-efi
 bash install_all.sh

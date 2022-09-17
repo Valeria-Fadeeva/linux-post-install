@@ -45,3 +45,4 @@ fasm
 nasm
 yasm
 tcc
+ltrace

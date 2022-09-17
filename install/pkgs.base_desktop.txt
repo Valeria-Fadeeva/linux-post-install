@@ -1,5 +1,7 @@
-jdk-openjdk
 gnome-keyring
+ttf-ubuntu-font-family
+avidemux-cli
+avidemux-qt
 firefox
 firefox-i18n-ru
 firefox-developer-edition
@@ -18,6 +20,7 @@ libreoffice-fresh-ru
 gwenview
 gimp
 inkscape
+krita
 kate
 kcalc
 redshift

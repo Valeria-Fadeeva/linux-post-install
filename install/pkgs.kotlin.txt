@@ -1,0 +1,6 @@
+kotlin
+maven
+gradle
+gradle-doc
+jre-openjdk
+jdk-openjdk

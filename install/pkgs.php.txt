@@ -1,1 +1,11 @@
-php php-enchant php-fpm php-gd php-intl php-pgsql php-pspell php-sqlite php-tidy php-xsl xdebug
+php
+php-enchant
+php-fpm
+php-gd
+php-intl
+php-pgsql
+php-pspell
+php-sqlite
+php-tidy
+php-xsl
+xdebug

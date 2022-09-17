@@ -2,7 +2,6 @@ rustup
 rust-analyzer
 rust-bindgen
 rust-musl
-rust-racer
 rust-script
 cargo-asm
 cargo-audit
@@ -42,5 +41,7 @@ compiler-rt
 lldb
 lld
 bear
-fasm nasm yasm
+fasm
+nasm
+yasm
 tcc

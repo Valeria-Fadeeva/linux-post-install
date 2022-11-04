@@ -1,3 +1,5 @@
+gparted
+gsmartcontrol
 gnome-keyring
 ttf-ubuntu-font-family
 avidemux-cli

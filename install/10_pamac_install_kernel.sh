@@ -10,4 +10,4 @@ fi
 
 pacman -Rns micro
 
-pamac install linux-xanmod-edge linux-xanmod-edge-headers
+pamac install linux-xanmod linux-xanmod-headers

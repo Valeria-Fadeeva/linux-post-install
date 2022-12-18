@@ -67,8 +67,6 @@ inxi
 iproute2
 iptables-nft
 iputils
-ipw2100-fw
-ipw2200-fw
 kaccounts-providers
 kamera
 kamoso
@@ -84,6 +82,7 @@ kde-servicemenus-pdf
 kde-servicemenus-pdf-encrypt-decrypt
 kde-servicemenus-sendtodesktop
 kde-servicemenus-setaswallpaper
+kde-servicemenus-rootactions
 kdeconnect
 kdegraphics-thumbnailers
 kdenetwork-filesharing
@@ -164,7 +163,6 @@ qt5-imageformats
 quota-tools
 rate-mirrors
 resvg
-rootactions-servicemenu
 ruby
 samba-support
 scanner-support

@@ -37,7 +37,6 @@ keepassxc
 yandex-disk
 visual-studio-code-bin
 github-cli
-github-desktop
 curl
 wget
 pv

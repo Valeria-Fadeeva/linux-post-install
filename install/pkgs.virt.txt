@@ -10,7 +10,6 @@ virt-manager
 virt-viewer
 swtpm
 ibm-sw-tpm2
-tpm2-abrmd
 tpm2-pkcs11
 tpm2-tools
 tpm2-totp

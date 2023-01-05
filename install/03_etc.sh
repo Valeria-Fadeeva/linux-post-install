@@ -24,3 +24,6 @@ cp --verbose --recursive --force --remove-destination --no-dereference --preserv
 cp --verbose --recursive --force --remove-destination --no-dereference --preserve=links pamac.conf /etc/
 
 chown -R sddm:sddm /var/lib/sddm/.config
+
+systemctl enable sshd
+systemctl start sshd

@@ -18,4 +18,5 @@ if [[ -z "$ch" ]]; then
 fi
 
 pacman -Sy
+pacman -S --needed pamac-aur
 pamac checkupdates>/dev/null

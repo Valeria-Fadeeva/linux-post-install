@@ -10,8 +10,8 @@ fi
 
 kver=$(ls /usr/lib/modules/ | grep "xanmod" | head -n 1)
 if [[ -n "$kver" ]]; then
-    cp -vf linux-xanmod.preset /etc/mkinitcpio.d/
-    mkinitcpio -p linux-xanmod
+    cp -vf linux-xanmod-me.preset /etc/mkinitcpio.d/
+    mkinitcpio -p linux-xanmod-me
 fi
 
 #cd /boot/efi/EFI/Linux

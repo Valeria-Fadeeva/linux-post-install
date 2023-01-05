@@ -11,3 +11,5 @@ fi
 pacman -Rns micro
 
 pamac install linux-xanmod linux-xanmod-headers
+
+pamac install linux-cachyos-pds linux-cachyos-pds-headers linux-cachyos-pds-zfs

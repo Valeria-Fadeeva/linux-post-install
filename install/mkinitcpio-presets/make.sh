@@ -10,16 +10,16 @@ fi
 
 kver=$(ls /usr/lib/modules/ | grep "xanmod" | sort -V | tail -n 1)
 if [[ -n "$kver" ]]; then
-    cp -vf linux-xanmod-me.preset /etc/mkinitcpio.d/
-    mkinitcpio -p linux-xanmod-me
+    cp -vf linux-xanmod.preset /etc/mkinitcpio.d/
+    mkinitcpio -p linux-xanmod
 fi
 
 unset kver
 
 kver=$(ls /usr/lib/modules/ | grep "cachyos-pds" | sort -V | tail -n 1)
 if [[ -n "$kver" ]]; then
-    cp -vf linux-cachyos-me.preset /etc/mkinitcpio.d/
-    mkinitcpio -p linux-cachyos-me
+    cp -vf linux-cachyos-pds.preset /etc/mkinitcpio.d/
+    mkinitcpio -p linux-cachyos-pds
 fi
 
 #cd /boot/efi/EFI/Linux

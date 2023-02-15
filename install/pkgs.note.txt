@@ -141,6 +141,7 @@ okular
 os-prober-btrfs
 pacman
 pacman-contrib
+pacman-auto-update
 pamac-aur
 partitionmanager
 pciutils

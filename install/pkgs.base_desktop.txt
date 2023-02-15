@@ -17,8 +17,6 @@ ttf-ubuntu-font-family
 systemd-ui
 systemd-boot-pacman-hook
 systemd-resolvconf
-pamac-aur
-pamac-tray-icon-plasma
 bluedevil
 gnome-keyring
 keepassxc

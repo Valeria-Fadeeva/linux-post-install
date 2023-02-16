@@ -122,7 +122,6 @@ man-db
 man-pages
 mdadm
 memtest86+
-micro
 mkinitcpio-nfs-utils
 mkinitcpio-openswap
 mkinitcpio-systemd-tool
@@ -142,7 +141,7 @@ os-prober-btrfs
 pacman
 pacman-contrib
 pacman-auto-update
-pamac-aur
+pamac-nosnap
 partitionmanager
 pciutils
 plasma-browser-integration

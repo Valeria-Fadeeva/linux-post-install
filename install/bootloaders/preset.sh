@@ -19,4 +19,4 @@ fi
 
 cat manual.conf.preset | sed "s/{CMDLINE}/$CMDLINE/g" > manual.conf
 
-cp -vf manual.conf /boot/efi/EFI/refind/
+cp -vf manual.conf /efi/EFI/refind/

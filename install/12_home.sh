@@ -36,4 +36,4 @@ fi
 chown -R 1000:1000 "/home/lera"
 
 echo -e "\n"
-read -rsn1 -p"Press any key to exit";echo
+read -rsn1 -p"Press ENTER to exit";echo

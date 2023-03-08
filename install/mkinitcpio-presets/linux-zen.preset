@@ -1,6 +1,6 @@
 # mkinitcpio preset file for the 'Lera Forest' package
 
-KNAME="cachyos-pds"
+KNAME="zen"
 
 KVER=$(ls /usr/lib/modules/ | grep $KNAME | sort -V | tail -n 1)
 

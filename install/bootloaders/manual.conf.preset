@@ -17,7 +17,7 @@ menuentry "Linux Xanmod" {
     }
 }
 
-menuentry "Linux Xanmod EFI" {
+menuentry "Linux EFI Xanmod" {
     icon     /EFI/refind/themes/anime-scenery/white-icons/os_garuda.png
     ostype   Linux
     graphics on
@@ -28,7 +28,7 @@ menuentry "Linux Xanmod EFI" {
     }
 }
 
-menuentry "Linux Cachyos" {
+menuentry "Linux Cachyos PDS" {
     icon     /EFI/refind/themes/anime-scenery/white-icons/os_garuda.png
     ostype   Linux
     graphics on
@@ -47,7 +47,7 @@ menuentry "Linux Cachyos" {
     }
 }
 
-menuentry "Linux Cachyos EFI" {
+menuentry "Linux EFI Cachyos PDS" {
     icon     /EFI/refind/themes/anime-scenery/white-icons/os_garuda.png
     ostype   Linux
     graphics on

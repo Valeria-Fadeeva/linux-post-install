@@ -12,4 +12,21 @@ pacman --needed -S linux$(uname -r | sed s/"\."/""/g | cut -c1-3)-headers
 
 cd mkinitcpio-presets
 
-bash make.sh
+list=$(ls -1)
+
+for i in $list
+do
+    KNAME=$(echo "$i" | sed -e 's/linux-//g' | sed -e 's/.preset//g')
+    KVER=$(ls /usr/lib/modules/ | grep "$KNAME" | sort -V | tail -n 1)
+    if [[ -n "$KVER" ]]; then
+        cp -vf "linux-$KNAME.preset" /etc/mkinitcpio.d/
+        mkinitcpio -p "linux-$KNAME"
+    fi
+
+    unset KVER
+done
+
+#cd /boot/efi/EFI/Linux
+#cp -u $(ls) /boot/
+
+#update-grub

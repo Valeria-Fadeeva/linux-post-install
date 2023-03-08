@@ -12,5 +12,5 @@ fi
 
 pacman --needed -S mc
 
-cp --verbose --recursive --force --remove-destination --no-dereference --preserve=links ./root/.config/mc /root/.config/
+cd root && cp --verbose --force --remove-destination --no-dereference --preserve=links --recursive . $HOME && cd ..
 

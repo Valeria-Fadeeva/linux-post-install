@@ -8,4 +8,4 @@ else
     echo "USER IS ROOT"
 fi
 
-pacman -Syu --needed --overwrite="*"
+pacman -Syu

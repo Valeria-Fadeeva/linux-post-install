@@ -36,4 +36,3 @@ cp --verbose --recursive --force --remove-destination --no-dereference --preserv
 
 systemctl enable reflector
 systemctl restart reflector
-

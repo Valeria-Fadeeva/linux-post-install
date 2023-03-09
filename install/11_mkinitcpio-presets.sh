@@ -10,6 +10,8 @@ fi
 
 pacman --needed -S linux$(uname -r | sed s/"\."/""/g | cut -c1-3)-headers
 
+pacman --needed -S mkinitcpio mkinitcpio-busybox mkinitcpio-firmware mkinitcpio-netconf mkinitcpio-nfs-utils mkinitcpio-systemd-tool
+
 cd mkinitcpio-presets
 
 list=$(ls -1)

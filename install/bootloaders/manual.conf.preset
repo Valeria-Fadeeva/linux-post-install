@@ -1,3 +1,33 @@
+menuentry "Linux Cachyos TT" {
+    icon     /EFI/refind/themes/anime-scenery/white-icons/os_garuda.png
+    ostype   Linux
+    graphics on
+    loader   /EFI/Linux/vmlinuz-cachyos-tt
+
+    initrd   /EFI/Linux/initramfs-cachyos-tt.img"
+
+    options  "{CMDLINE} initrd=EFI\Linux\intel-ucode.img initrd=EFI\Linux\amd-ucode.img"
+
+    submenuentry "Boot Linux fallback" {
+        initrd   /EFI/Linux/initramfs-cachyos-tt-fallback.img
+    }
+
+    submenuentry "Boot to terminal" {
+        add_options "systemd.unit=multi-user.target"
+    }
+}
+
+menuentry "Linux EFI Cachyos TT" {
+    icon     /EFI/refind/themes/anime-scenery/white-icons/os_garuda.png
+    ostype   Linux
+    graphics on
+    loader   /EFI/Linux/linux-cachyos-tt.efi
+
+    submenuentry "Boot Linux fallback" {
+        loader   /EFI/Linux/linux-cachyos-tt-fallback.efi
+    }
+}
+
 menuentry "Linux Xanmod" {
     icon     /EFI/refind/themes/anime-scenery/white-icons/os_garuda.png
     ostype   Linux
@@ -15,6 +45,8 @@ menuentry "Linux Xanmod" {
     submenuentry "Boot to terminal" {
         add_options "systemd.unit=multi-user.target"
     }
+
+    disabled
 }
 
 menuentry "Linux EFI Xanmod" {
@@ -26,36 +58,8 @@ menuentry "Linux EFI Xanmod" {
     submenuentry "Boot Linux fallback" {
         loader   /EFI/Linux/linux-xanmod-fallback.efi
     }
-}
 
-menuentry "Linux Cachyos PDS" {
-    icon     /EFI/refind/themes/anime-scenery/white-icons/os_garuda.png
-    ostype   Linux
-    graphics on
-    loader   /EFI/Linux/vmlinuz-cachyos-pds
-
-    initrd   /EFI/Linux/initramfs-cachyos-pds.img"
-
-    options  "{CMDLINE} initrd=EFI\Linux\intel-ucode.img initrd=EFI\Linux\amd-ucode.img"
-
-    submenuentry "Boot Linux fallback" {
-        initrd   /EFI/Linux/initramfs-cachyos-pds-fallback.img
-    }
-
-    submenuentry "Boot to terminal" {
-        add_options "systemd.unit=multi-user.target"
-    }
-}
-
-menuentry "Linux EFI Cachyos PDS" {
-    icon     /EFI/refind/themes/anime-scenery/white-icons/os_garuda.png
-    ostype   Linux
-    graphics on
-    loader   /EFI/Linux/linux-cachyos-pds.efi
-
-    submenuentry "Boot Linux fallback" {
-        loader   /EFI/Linux/linux-cachyos-pds-fallback.efi
-    }
+    disabled
 }
 
 menuentry "GRUB" {
@@ -63,6 +67,8 @@ menuentry "GRUB" {
     ostype   Linux
     graphics on
     loader /EFI/Garuda/grubx64.efi
+
+    disabled
 }
 
 menuentry "Systemd Boot" {
@@ -70,12 +76,15 @@ menuentry "Systemd Boot" {
     ostype   Linux
     graphics on
     loader /EFI/systemd/systemd-bootx64.efi
+
+    disabled
 }
 
 menuentry "Windows" {
     icon      /EFI/refind/themes/anime-scenery/white-icons/os_win11.png
     ostype    Windows
     loader    /EFI/Microsoft/Boot/bootmgfw.efi
+
     disabled
 }
 
@@ -84,4 +93,4 @@ menuentry "Memtest86+ from EFI" {
     loader   /EFI/memtest/bootx64.efi
 }
 
-default_selection "Linux Xanmod"
+default_selection "Linux EFI Cachyos TT"

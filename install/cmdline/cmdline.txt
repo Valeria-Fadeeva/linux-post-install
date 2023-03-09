@@ -1,1 +1,1 @@
-root=UUID=e9da157b-345f-44b8-a942-fcb4af4509f4 rw rootflags=subvol=@ quiet splash bgrt_disable video=vesafb:off,efifb:on apparmor=1 security=apparmor loglevel=3 systemd.unified_cgroup_hierarchy=0 fsck.mode=force fsck.repair=yes add_efi_memmap
+root=UUID=24f2a700-319b-41f2-853f-c5711cd4081d rw rootflags=subvol=@ quiet splash bgrt_disable video=vesafb:off,efifb:on nvme_load=YES apparmor=1 security=apparmor loglevel=3 systemd.unified_cgroup_hierarchy=0 fsck.mode=force fsck.repair=yes add_efi_memmap

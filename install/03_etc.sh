@@ -35,4 +35,4 @@ cp --verbose --recursive --force --remove-destination --no-dereference --preserv
 cp --verbose --recursive --force --remove-destination --no-dereference --preserve=links reflector-simple.conf /etc/
 
 systemctl enable reflector
-systemctl restart reflector
+systemctl restart reflector &

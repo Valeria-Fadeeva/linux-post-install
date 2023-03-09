@@ -8,7 +8,7 @@ else
     echo "USER IS ROOT"
 fi
 
-mkdir -p /boot/efi/EFI/Linux
+mkdir -p /efi/EFI/Linux
 
 ### CMDLINE
 
@@ -59,7 +59,16 @@ echo "$ROOTUUID" > cmd-uuid.txt
 
 UUID="root=$(cat cmd-uuid.txt) rw rootflags=subvol=@"
 SPLASH=$(cat cmd-splash.txt)
+
+# VCard=$(lsmod | grep nvidia | head -n 1 | cut -d_ -f1)
+# if [[ "$VCard" == "nvidia" ]]; then
+#     VIDEO=$(cat cmd-video-nvidia.txt)
+# else
+#     VIDEO=$(cat cmd-video.txt)
+# fi
+
 VIDEO=$(cat cmd-video.txt)
+
 END=$(cat cmd-end.txt)
 
 echo "$UUID $SPLASH $VIDEO $END" > cmdline.txt
@@ -67,7 +76,8 @@ sed -i "s/  / /g" cmdline.txt
 sed -i "s/\n//g" cmdline.txt
 
 cp -vf cmdline.txt /boot/
-cp -vf cmdline.txt /boot/efi/EFI/Linux/
+cp -vf cmdline.txt /efi/EFI/Linux/
+cp -vf cmdline.txt /etc/kernel/cmdline
 
 echo -e "/boot/cmdline.txt\n"
 cat /boot/cmdline.txt

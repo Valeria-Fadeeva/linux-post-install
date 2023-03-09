@@ -8,6 +8,18 @@ else
     echo "USER IS ROOT"
 fi
 
+# EndeavourOS Linux
+
+sudo pacman-key --recv-keys 003DB8B0CB23504F
+sudo pacman-key --lsign-key 003DB8B0CB23504F
+
+pacman -U endeavouros/*.zst
+
+ch=$(grep /etc/pacman.conf -e "\[endeavouros\]")
+if [[ -z "$ch" ]]; then
+    echo -e "[endeavouros]\nSigLevel = PackageRequired\nInclude = /etc/pacman.d/endeavouros-mirrorlist\n\n" >> /etc/pacman.conf;
+fi
+unset ch
 
 # ARCO Linux
 
@@ -100,5 +112,9 @@ pacman -S mc --needed
 pacman -S terminus-font --needed
 pacman -S yay --needed
 pacman -S kdeplasma-addons --needed
-yay -S --quiet --needed --noconfirm pamac-all
+
+#user=$(cat /etc/passwd | grep 1000 | cut -d: -f1)
+user=$(who | head -n 1 | cut -d' ' -f1)
+
+su - $user -c "yay -S --quiet --needed --noconfirm pamac-all"
 pamac checkupdates>/dev/null

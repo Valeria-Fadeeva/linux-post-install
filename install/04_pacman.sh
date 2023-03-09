@@ -76,6 +76,12 @@ pacman -U repo/chaotic/*.zst
 
 pacman --needed -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
+ch=$(grep /etc/pacman.conf -e "\[garuda\]")
+if [[ -z "$ch" ]]; then
+    echo -e "[garuda]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n\n" >> /etc/pacman.conf;
+fi
+unset ch
+
 ch=$(grep /etc/pacman.conf -e "\[chaotic-aur\]")
 if [[ -z "$ch" ]]; then
     echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n\n" >> /etc/pacman.conf;

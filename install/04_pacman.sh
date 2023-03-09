@@ -13,7 +13,7 @@ fi
 sudo pacman-key --recv-keys 003DB8B0CB23504F
 sudo pacman-key --lsign-key 003DB8B0CB23504F
 
-pacman -U endeavouros/*.zst
+pacman -U repo/endeavouros/*.zst
 
 ch=$(grep /etc/pacman.conf -e "\[endeavouros\]")
 if [[ -z "$ch" ]]; then
@@ -47,7 +47,7 @@ sudo pacman-key --lsign-key 18064BF445855549
 sudo pacman-key --recv-keys 7EC1A5550718AB89
 sudo pacman-key --lsign-key 7EC1A5550718AB89
 
-pacman -U arcolinux/*.zst
+pacman -U repo/arcolinux/*.zst
 
 ch=$(grep /etc/pacman.conf -e "\[arcolinux_repo\]")
 if [[ -z "$ch" ]]; then
@@ -71,6 +71,9 @@ unset ch
 
 pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key FBA220DFC880C036
+
+pacman -U repo/chaotic/*.zst
+
 pacman --needed -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
 ch=$(grep /etc/pacman.conf -e "\[chaotic-aur\]")
@@ -84,7 +87,7 @@ unset ch
 pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key F3B607488DB35A47
 
-pacman -U cachyos/*.zst
+pacman -U repo/cachyos/*.zst
 
 #pacman -U 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-2-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-17-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v3-mirrorlist-17-1-any.pkg.tar.zst' 'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v4-mirrorlist-5-1-any.pkg.tar.zst'
 #'https://mirror.cachyos.org/repo/x86_64/cachyos/pacman-6.0.2-10-x86_64.pkg.tar.zst'

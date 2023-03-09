@@ -39,19 +39,19 @@ pacman -U arcolinux/*.zst
 
 ch=$(grep /etc/pacman.conf -e "\[arcolinux_repo\]")
 if [[ -z "$ch" ]]; then
-    echo -e "[arcolinux_repo]\nSigLevel = Required DatabaseOptional\nInclude = /etc/pacman.d/arcolinux-mirrorlist\n" >> /etc/pacman.conf;
+    echo -e "[arcolinux_repo]\nSigLevel = Required DatabaseOptional\nInclude = /etc/pacman.d/arcolinux-mirrorlist\n\n" >> /etc/pacman.conf;
 fi
 unset ch
 
 ch=$(grep /etc/pacman.conf -e "\[arcolinux_repo_xlarge\]")
 if [[ -z "$ch" ]]; then
-    echo -e "[arcolinux_repo_xlarge]\nSigLevel = Required DatabaseOptional\nInclude = /etc/pacman.d/arcolinux-mirrorlist" >> /etc/pacman.conf;
+    echo -e "[arcolinux_repo_xlarge]\nSigLevel = Required DatabaseOptional\nInclude = /etc/pacman.d/arcolinux-mirrorlist\n\n" >> /etc/pacman.conf;
 fi
 unset ch
 
 ch=$(grep /etc/pacman.conf -e "\[arcolinux_repo_3party\]")
 if [[ -z "$ch" ]]; then
-    echo -e "[arcolinux_repo_3party]\nSigLevel = Required DatabaseOptional\nInclude = /etc/pacman.d/arcolinux-mirrorlist" >> /etc/pacman.conf;
+    echo -e "[arcolinux_repo_3party]\nSigLevel = Required DatabaseOptional\nInclude = /etc/pacman.d/arcolinux-mirrorlist\n\n" >> /etc/pacman.conf;
 fi
 unset ch
 
@@ -63,7 +63,7 @@ pacman --needed -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pk
 
 ch=$(grep /etc/pacman.conf -e "\[chaotic-aur\]")
 if [[ -z "$ch" ]]; then
-    echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n" >> /etc/pacman.conf;
+    echo -e "[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist\n\n" >> /etc/pacman.conf;
 fi
 unset ch
 
@@ -91,13 +91,14 @@ pacman -U cachyos/*.zst
 
 ch=$(grep /etc/pacman.conf -e "\[cachyos\]")
 if [[ -z "$ch" ]]; then
-    echo -e "[cachyos]\nInclude = /etc/pacman.d/cachyos-mirrorlist\n" >> /etc/pacman.conf;
+    echo -e "[cachyos]\nInclude = /etc/pacman.d/cachyos-mirrorlist\n\n" >> /etc/pacman.conf;
 fi
 unset ch
 
 pacman -Sy
-pacman -S mc
-pacman -S terminus-font
-pacman -S kdeplasma-addons
+pacman -S mc --needed
+pacman -S terminus-font --needed
+pacman -S yay --needed
+pacman -S kdeplasma-addons --needed
 yay -S --quiet --needed --noconfirm pamac-all
 pamac checkupdates>/dev/null

@@ -17,6 +17,6 @@ else
     echo -e "found: $CMDLINE" | column -t
 fi
 
-cat manual.conf.preset | sed "s/{CMDLINE}/$CMDLINE/g" > manual.conf
+cat easy/manual.conf.preset | sed "s/{CMDLINE}/$CMDLINE/g" > easy/manual.conf
 
-cp -vf manual.conf /efi/EFI/refind/
+cp -vf easy/manual.conf /efi/EFI/refind/

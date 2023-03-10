@@ -30,12 +30,17 @@ fi
 
 unset bootnum
 
-
-bootnum=$(efibootmgr | grep "\\\EFI\\\BOOT\\\BOOTX64.EFI" | cut -d'*' -f1 | sed 's/Boot//g')
+efiid=$(cat /etc/fstab | grep efi | cut -d'=' -f2 | cut -d' ' -f1)
+blkpart=$(blkid | grep $efiid)
+strlen=${#blkpart}
+lastelemlen=38
+ind=$(echo $strlen-$lastelemlen | bc)
+UUID=$(echo ${blkpart:$ind:$lastelemlen} | sed 's/"//g')
+bootnum=$(efibootmgr | grep $UUID | grep "BOOTX64.EFI" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
 if [[ -n "$bootnum" ]]; then
     efibootmgr -B -b $bootnum
 else
-    bootnum=$(efibootmgr | grep "\\\EFI\\\boot\\\bootx64.EFI" | cut -d'*' -f1 | sed 's/Boot//g')
+    bootnum=$(efibootmgr | grep $UUID | grep "bootx64.efi" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
     if [[ -n "$bootnum" ]]; then
         efibootmgr -B -b $bootnum
     fi
@@ -43,13 +48,13 @@ fi
 unset bootnum
 
 
-bootnum=$(efibootmgr | grep "\\\EFI\\\SYSTEMD\\\SYSTEMD-BOOTX64.EFI" | cut -d'*' -f1 | sed 's/Boot//g')
+bootnum=$(efibootmgr | grep $UUID | grep "SYSTEMD-BOOTX64.EFI" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
 if [[ -n "$bootnum" ]]; then
-    bootctl remove
+    efibootmgr -B -b $bootnum
 else
-    bootnum=$(efibootmgr | grep "\\\EFI\\\systemd\\\systemd-bootx64.efi" | cut -d'*' -f1 | sed 's/Boot//g')
+    bootnum=$(efibootmgr | grep $UUID | grep "systemd-bootx64.efi" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
     if [[ -n "$bootnum" ]]; then
-        bootctl remove
+        efibootmgr -B -b $bootnum
     fi
 fi
 unset bootnum

@@ -60,14 +60,14 @@ echo "$ROOTUUID" > cmd-uuid.txt
 UUID="root=$(cat cmd-uuid.txt) rw rootflags=subvol=@"
 SPLASH=$(cat cmd-splash.txt)
 
-# VCard=$(lsmod | grep nvidia | head -n 1 | cut -d_ -f1)
-# if [[ "$VCard" == "nvidia" ]]; then
-#     VIDEO=$(cat cmd-video-nvidia.txt)
-# else
-#     VIDEO=$(cat cmd-video.txt)
-# fi
+VCard=$(lsmod | grep nvidia | head -n 1 | cut -d_ -f1)
+if [[ "$VCard" == "nvidia" ]]; then
+    VIDEO=$(cat cmd-video-nvidia.txt)
+else
+    VIDEO=$(cat cmd-video.txt)
+fi
 
-VIDEO=$(cat cmd-video.txt)
+#VIDEO=$(cat cmd-video.txt)
 
 END=$(cat cmd-end.txt)
 

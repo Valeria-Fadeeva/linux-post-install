@@ -71,6 +71,7 @@ cp -vf easy/refind.conf /efi/EFI/refind/
 cp -vf hard/refind.conf /efi/EFI/refind_hard/
 
 bash easy/preset.sh
+rm -f easy/manual.conf
 
 cd ../../../linux-boot-efi
 bash install_all.sh

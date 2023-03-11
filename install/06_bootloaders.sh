@@ -8,6 +8,92 @@ else
     echo "USER IS ROOT"
 fi
 
-cd bootloaders
+### BOOTLOADERS
 
-bash make.sh
+mkdir -p /efi/EFI/Linux
+
+pacman --needed -S refind
+
+rm -f /boot/refind_linux.conf
+
+refind-install
+
+bootnum=$(efibootmgr | grep "\\\EFI\\\REFIND\\\REFIND_X64.EFI" | cut -d'*' -f1 | sed 's/Boot//g')
+if [[ -n "$bootnum" ]]; then
+    efibootmgr -n $bootnum
+else
+    bootnum=$(efibootmgr | grep "\\\EFI\\\refind\\\refind_x64.efi" | cut -d'*' -f1 | sed 's/Boot//g')
+    if [[ -n "$bootnum" ]]; then
+        efibootmgr -n $bootnum
+    fi
+fi
+
+unset bootnum
+
+efiid=$(cat /etc/fstab | grep efi | cut -d'=' -f2 | cut -d' ' -f1)
+blkpart=$(blkid | grep $efiid)
+strlen=${#blkpart}
+lastelemlen=38
+ind=$(echo $strlen-$lastelemlen | bc)
+UUID=$(echo ${blkpart:$ind:$lastelemlen} | sed 's/"//g')
+bootnum=$(efibootmgr | grep $UUID | grep "BOOTX64.EFI" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
+if [[ -n "$bootnum" ]]; then
+    efibootmgr -B -b $bootnum
+else
+    bootnum=$(efibootmgr | grep $UUID | grep "bootx64.efi" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
+    if [[ -n "$bootnum" ]]; then
+        efibootmgr -B -b $bootnum
+    fi
+fi
+unset bootnum
+
+
+bootnum=$(efibootmgr | grep $UUID | grep "SYSTEMD-BOOTX64.EFI" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
+if [[ -n "$bootnum" ]]; then
+    efibootmgr -B -b $bootnum
+else
+    bootnum=$(efibootmgr | grep $UUID | grep "systemd-bootx64.efi" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
+    if [[ -n "$bootnum" ]]; then
+        efibootmgr -B -b $bootnum
+    fi
+fi
+unset bootnum
+
+
+cp -vrf bootloaders/memtest /efi/EFI/
+cp -vf /boot/refind_linux.conf /efi/EFI/Linux/
+rm -vrf /efi/EFI/refind/icons-backup
+
+mkdir -p /efi/EFI/refind_hard
+cp -vrf /efi/EFI/refind/* /efi/EFI/refind_hard
+rm -f /efi/EFI/refind_hard/manual.conf
+
+cp -vf bootloaders/easy/refind.conf /efi/EFI/refind/
+cp -vf bootloaders/hard/refind.conf /efi/EFI/refind_hard/
+
+CMDLINE=$(cat cmdline/cmdline.txt | sed "s/\n//g")
+
+if [[ -z "$CMDLINE" ]]; then
+    echo -e "CMDLINE NOT FOUND\n"
+    exit
+else
+    echo -e "found: $CMDLINE" | column -t
+fi
+
+CMDLINE=$(echo $CMDLINE | sed 's/^[[:space:]]*//g' | sed 's/[[:space:]]*$//g')
+
+cat bootloaders/easy/manual.conf.preset | sed "s/{CMDLINE}/$CMDLINE/g" > bootloaders/easy/manual.conf
+
+cp -vf bootloaders/easy/manual.conf /efi/EFI/refind/
+
+rm -f bootloaders/easy/manual.conf
+
+cd ../../linux-boot-efi
+bash install_all.sh
+
+cp -vrf /efi/EFI/refind/themes /efi/EFI/refind_hard/
+
+mkdir -p /efi/EFI/boot
+cp -vrf /efi/EFI/refind/* /efi/EFI/boot
+mv -vf /efi/EFI/boot/refind_x64.efi /efi/EFI/boot/boot_x64.efi
+

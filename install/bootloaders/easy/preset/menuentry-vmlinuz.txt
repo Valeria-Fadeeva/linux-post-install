@@ -1,0 +1,19 @@
+menuentry "Linux {KERNEL_NAME}" {
+    icon     /EFI/refind/themes/anime-scenery/white-icons/os_arch.png
+    ostype   Linux
+    graphics on
+    loader   /EFI/Linux/{KERNEL}
+
+    initrd   /EFI/Linux/{INITRAMFS}
+
+    options  "{CMDLINE} initrd=EFI\Linux\intel-ucode.img initrd=EFI\Linux\amd-ucode.img"
+
+    submenuentry "Boot Linux fallback" {
+        initrd   /EFI/Linux/{INITRAMFS_FALLBACK}
+    }
+
+    submenuentry "Boot to terminal" {
+        add_options "systemd.unit=multi-user.target"
+    }
+}
+

@@ -18,6 +18,7 @@ rm -f /boot/refind_linux.conf
 
 refind-install
 
+
 bootnum=$(efibootmgr | grep "\\\EFI\\\REFIND\\\REFIND_X64.EFI" | cut -d'*' -f1 | sed 's/Boot//g')
 if [[ -n "$bootnum" ]]; then
     efibootmgr -n $bootnum
@@ -29,6 +30,7 @@ else
 fi
 
 unset bootnum
+
 
 efiid=$(cat /etc/fstab | grep efi | cut -d'=' -f2 | cut -d' ' -f1)
 blkpart=$(blkid | grep $efiid)
@@ -71,29 +73,16 @@ rm -f /efi/EFI/refind_hard/manual.conf
 cp -vf bootloaders/easy/refind.conf /efi/EFI/refind/
 cp -vf bootloaders/hard/refind.conf /efi/EFI/refind_hard/
 
-CMDLINE=$(cat cmdline/cmdline.txt | sed "s/\n//g")
-
-if [[ -z "$CMDLINE" ]]; then
-    echo -e "CMDLINE NOT FOUND\n"
-    exit
-else
-    echo -e "found: $CMDLINE" | column -t
-fi
-
-CMDLINE=$(echo $CMDLINE | sed 's/^[[:space:]]*//g' | sed 's/[[:space:]]*$//g')
-
-cat bootloaders/easy/manual.conf.preset | sed "s/{CMDLINE}/$CMDLINE/g" > bootloaders/easy/manual.conf
+bash bootloaders/easy/make.sh
 
 cp -vf bootloaders/easy/manual.conf /efi/EFI/refind/
 
 rm -f bootloaders/easy/manual.conf
 
-cd ../../linux-boot-efi
-bash install_all.sh
+bash ../../linux-boot-efi/install_all.sh
 
 cp -vrf /efi/EFI/refind/themes /efi/EFI/refind_hard/
 
 mkdir -p /efi/EFI/boot
 cp -vrf /efi/EFI/refind/* /efi/EFI/boot
 mv -vf /efi/EFI/boot/refind_x64.efi /efi/EFI/boot/boot_x64.efi
-

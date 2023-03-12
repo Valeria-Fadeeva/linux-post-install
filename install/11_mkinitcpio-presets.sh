@@ -27,8 +27,3 @@ do
 
     unset KVER
 done
-
-#cd /boot/efi/EFI/Linux
-#cp -u $(ls) /boot/
-
-#update-grub

@@ -37,13 +37,16 @@ do
     kernel=$(echo $i | sed 's/\.efi//g')
     kernel_name=$kernel
     osname=$(lsinitrd "$KERNEL_DIR/$kernel.efi" 2>&1 | grep 'OS Release' | cut -d':' -f2 | sed 's/^[[:space:]]*//g' | cut -d' ' -f1)
+    icon=$(lsinitrd "$KERNEL_DIR/$kernel.efi" 2>&1 | grep 'OS Release' | cut -d':' -f2 | sed 's/^[[:space:]]*//g' | cut -d' ' -f2 | sed 's/[\(\)]//g')
 
-    sed -e "s/{OSNAME}/$osname/g" -e "s/{KERNEL_NAME}/$kernel_name/g" -e "s/{KERNEL}/$kernel/g" $template_efi >> $manual_conf
+    sed -e "s/{OSNAME}/$osname/g" -e "s/{ICON}/$icon/g" -e "s/{KERNEL_NAME}/$kernel_name/g" -e "s/{KERNEL}/$kernel/g" $template_efi >> $manual_conf
 done
+
+
 
 template_end=$pwd'/preset/menu-end.txt'
 cat $template_end >> $manual_conf
 
-default='default_selection "1"'
+default='default_selection "lts"'
 
 echo $default >> $manual_conf

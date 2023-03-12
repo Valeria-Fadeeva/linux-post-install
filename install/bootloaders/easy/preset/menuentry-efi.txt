@@ -1,5 +1,5 @@
 menuentry "Linux EFI {OSNAME} {KERNEL_NAME}" {
-    icon     /EFI/refind/themes/anime-scenery/white-icons/os_arch.png
+    icon     /EFI/refind/themes/anime-scenery/white-icons/os_{ICON}.png
     ostype   Linux
     graphics on
     loader   /EFI/Linux/{KERNEL}.efi

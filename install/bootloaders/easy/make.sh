@@ -26,8 +26,8 @@ do
     initramfs=$(echo "$initramfs_tpl.img")
     initramfs_fallback=$(echo "$initramfs_tpl-fallback.img")
 
-    osname=$(cat /etc/os-release | grep "^NAME=" | cut -d'=' -f2 | sed -e 's/""//g')
-    icon=$(cat /etc/os-release | grep "^ID=" | cut -d'=' -f2 | sed -e 's/""//g')
+    osname=$(cat /etc/os-release | grep "^NAME=" | cut -d'=' -f2 | sed -e 's/"//g')
+    icon=$(cat /etc/os-release | grep "^ID=" | cut -d'=' -f2 | sed -e 's/"//g')
 
     sed -e "s/{OSNAME}/$osname/g" -e "s/{ICON}/$icon/g" -e "s/{KERNEL_NAME}/$kernel_name/g" -e "s/{KERNEL}/$kernel/g" -e "s/{INITRAMFS}/$initramfs/g" -e "s/{INITRAMFS_FALLBACK}/$initramfs_fallback/g" -e "s/{CMDLINE}/$CMDLINE/g" $template_vmlinuz >> $manual_conf
 done
@@ -40,9 +40,9 @@ do
     kernel=$(echo $i | sed 's/\.efi//g')
     kernel_name=$kernel
     #osname=$(lsinitrd "$KERNEL_DIR/$kernel.efi" 2>&1 | grep 'OS Release' | cut -d':' -f2 | sed 's/^[[:space:]]*//g' | cut -d' ' -f1)
-    osname=$(cat /etc/os-release | grep "^NAME=" | cut -d'=' -f2 | sed -e 's/""//g')
     #icon=$(lsinitrd "$KERNEL_DIR/$kernel.efi" 2>&1 | grep 'OS Release' | cut -d':' -f2 | sed 's/^[[:space:]]*//g' | cut -d' ' -f2 | sed 's/[\(\)]//g')
-    icon=$(cat /etc/os-release | grep "^ID=" | cut -d'=' -f2 | sed -e 's/""//g')
+    osname=$(cat /etc/os-release | grep "^NAME=" | cut -d'=' -f2 | sed -e 's/"//g')
+    icon=$(cat /etc/os-release | grep "^ID=" | cut -d'=' -f2 | sed -e 's/"//g')
 
     sed -e "s/{OSNAME}/$osname/g" -e "s/{ICON}/$icon/g" -e "s/{KERNEL_NAME}/$kernel_name/g" -e "s/{KERNEL}/$kernel/g" $template_efi >> $manual_conf
 done

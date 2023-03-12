@@ -16,8 +16,6 @@ cp -vrf pam.d/* /etc/pam.d/
 
 #cp -vrf sudoers.d/* /etc/sudoers.d/
 
-cp -vf /etc/mkinitcpio.conf /etc/mkinitcpio.conf.bak
-cp -vf mkinitcpio.conf /etc/
 cp -vf sddm.conf /etc/
 cp -vf vconsole.conf /etc/
 

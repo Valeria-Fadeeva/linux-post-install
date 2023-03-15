@@ -62,6 +62,18 @@ fi
 unset bootnum
 
 
+bootnum=$(efibootmgr | grep $UUID | grep "GRUBX64.EFI" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
+if [[ -n "$bootnum" ]]; then
+    efibootmgr -B -b $bootnum
+else
+    bootnum=$(efibootmgr | grep $UUID | grep "grubx64.efi" | head -n 1 | cut -d'*' -f1 | sed 's/Boot//g')
+    if [[ -n "$bootnum" ]]; then
+        efibootmgr -B -b $bootnum
+    fi
+fi
+unset bootnum
+
+
 cp -vrf bootloaders/memtest /efi/EFI/
 cp -vf /boot/refind_linux.conf /efi/EFI/Linux/
 rm -vrf /efi/EFI/refind/icons-backup
@@ -85,4 +97,4 @@ cp -vrf /efi/EFI/refind/themes /efi/EFI/refind_hard/
 
 mkdir -p /efi/EFI/boot
 cp -vrf /efi/EFI/refind/* /efi/EFI/boot
-mv -vf /efi/EFI/boot/refind_x64.efi /efi/EFI/boot/boot_x64.efi
+mv -vf /efi/EFI/boot/refind_x64.efi /efi/EFI/boot/bootx64.efi

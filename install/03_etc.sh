@@ -8,18 +8,16 @@ else
     echo "USER IS ROOT"
 fi
 
-cd ./etc
-
 pacman --needed -S gnome-keyring
 
-cp -vrf pam.d/* /etc/pam.d/
+cp -vrf etc/pam.d/* /etc/pam.d/
 
-#cp -vrf sudoers.d/* /etc/sudoers.d/
+#cp -vrf etc/sudoers.d/* /etc/sudoers.d/
 
-cp -vf sddm.conf /etc/
-cp -vf vconsole.conf /etc/
+cp -vf etc/sddm.conf /etc/
+cp -vf etc/vconsole.conf /etc/
 
-cp -vf pamac.conf /etc/
+cp -vf etc/pamac.conf /etc/
 
 chown -R sddm:sddm /var/lib/sddm/.config
 
@@ -28,9 +26,9 @@ systemctl start sshd
 
 mkdir -p /etc/xdg/reflector/
 
-cp -vf xdg/reflector/reflector.conf /etc/xdg/reflector/
+cp -vf etc/xdg/reflector/reflector.conf /etc/xdg/reflector/
 
-cp -vf reflector-simple.conf /etc/
+cp -vf etc/reflector-simple.conf /etc/
 
 systemctl enable reflector
 systemctl restart reflector &

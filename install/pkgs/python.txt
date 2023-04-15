@@ -4,6 +4,7 @@ yapf
 flake8
 mypy
 bandit
+pyright
 python-black
 python-pylint
 python-flake8-docstrings

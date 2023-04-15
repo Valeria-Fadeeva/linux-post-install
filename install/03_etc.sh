@@ -15,6 +15,8 @@ cp -vrf etc/pam.d/* /etc/pam.d/
 #cp -vrf etc/sudoers.d/* /etc/sudoers.d/
 
 cp -vf etc/sddm.conf /etc/
+cp -vrf etc/sddm.conf.d/* /etc/sddm.conf.d/
+cp -vrf etc/plymouth/* /etc/plymouth/
 cp -vf etc/vconsole.conf /etc/
 
 cp -vf etc/pamac.conf /etc/

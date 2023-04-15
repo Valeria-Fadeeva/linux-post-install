@@ -1,3 +1,5 @@
 postgresql
 redis
 sqlitebrowser
+dbeaver
+dbeaver-plugin-svg-format

@@ -1,10 +1,10 @@
-menuentry "Linux EFI {OSNAME} {KERNEL_NAME}" {
+menuentry "EFI {OSNAME} {KERNEL_NAME}" {
     icon     /EFI/refind/themes/anime-scenery/white-icons/os_{ICON}.png
     ostype   Linux
     graphics on
     loader   /EFI/Linux/{KERNEL}.efi
 
-    submenuentry "Boot Linux EFI EFI {OSNAME} {KERNEL_NAME} fallback" {
+    submenuentry "EFI {OSNAME} {KERNEL_NAME} fallback" {
         loader   /EFI/Linux/{KERNEL}-fallback.efi
     }
 }

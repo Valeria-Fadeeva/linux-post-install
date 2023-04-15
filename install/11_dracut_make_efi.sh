@@ -8,9 +8,10 @@ else
     echo "USER IS ROOT"
 fi
 
-
+ESP_PATH=$(bootctl --print-esp-path)
+ESP_PATH="/efi"
 cmdline=$(sed -e 's/^[[:space:]]//g' -e 's/[[:space:]]$//g' /etc/kernel/cmdline)
-kernel_dir="/efi/EFI/Linux"
+kernel_dir="$ESP_PATH/EFI/Linux"
 
 for i in $(ls -1 /usr/lib/modules);
 do
